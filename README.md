@@ -1,1 +1,1 @@
-Inicialização do Projeto
+O Rastreador de Tarefas é um projeto usado para rastrear e gerenciar suas tarefas.
