@@ -1,5 +1,9 @@
 package Domain;
 
+import Data.ManageFileJson;
+import Entities.Task;
+import Services.NewTask;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -29,6 +33,19 @@ public class Menu {
                 System.out.println("Escolha inválida");
                 MenuInicialize();
                 choiceMenu();
+            }
+            switch (choice){
+                case 1:
+                    System.out.println("Qual a descrição da sua tarefa?");
+                    Task task = NewTask.CreatedNewTask();
+                    ManageFileJson.populateJson(task);
+                case 9:
+                    System.out.println("Encerrando programa.....");
+                    break;
+
+                default:MenuInicialize();
+                        choiceMenu();
+                        break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Apenas números são validos.");

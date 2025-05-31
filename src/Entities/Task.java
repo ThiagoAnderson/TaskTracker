@@ -3,6 +3,8 @@ package Entities;
 import Entities.Enums.Status;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Random;
 
 public class Task {
     private long id;
@@ -11,23 +13,23 @@ public class Task {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Task(long id, String description, Status status) {
-        this.id = id;
+    public Task(String description) {
+        this.id = new Random().nextLong(1_000_000);
         this.description = description;
-        this.status = status;
+        this.status = Status.IN_PROGRESS;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
 
     @Override
     public String toString() {
-        return "Task{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+        return "{\n" +
+                "    \"id\": " + id + ",\n" +
+                "    \"description\": \"" + description + "\",\n" +
+                "    \"status\": \"" + status + "\",\n" +
+                "    \"createdAt\": \"" + createdAt + "\",\n" +
+                "    \"updatedAt\": \"" + updatedAt + "\"\n" +
+                "   }";
     }
 
     public long getId() {
